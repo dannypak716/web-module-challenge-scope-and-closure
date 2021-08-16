@@ -83,8 +83,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+    Closure is when the function inside of personalDice() function is accessing "name" 
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+    Everything is the same besides the value of newRoll
+
 c. What is the lexical scope of `newRoll`? 
+
+    inner function of personalDice() function so it cannot be accessed outside of that inner function.
 
 
 ### Task 3 - Stretch Goals

@@ -29,10 +29,16 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   1. What is the difference between counter1 and counter2?
   
+      counter1 stores the count and saves and edits it later one whereas counter2 adds to the count once but because the count is declared as 0 again, it won't keep adding to the count each time the function is invoked.
+
   2. Which of the two uses a closure? How can you tell?
+
+      Both use a closure because count++ in each is accessing count that's declared outside of the function.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+     counter 1 would be best to keep track of score in a quarter and counter 2 would be best used to keep current game score 
 */
 
 // counter1 code
@@ -80,7 +86,7 @@ Use the finalScore function below to do the following:
   "Away": 5
 }
 */ 
-
+// params are inningcb, number
 function finalScore(/*code Here*/){
   /*Code Here*/
 }
@@ -90,6 +96,8 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
+  // inning cb
+  // returning an object with a score for home and away (like the guided project)
 function getInningScore(/*Your Code Here */) {
   /*Your Code Here */
 }
@@ -135,7 +143,7 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ]  
   */
-
+// params are getinningscorecb, scorecb, number
 function scoreboard(/* CODE HERE */) {
   /* CODE HERE */
 }
