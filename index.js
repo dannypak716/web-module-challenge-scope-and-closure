@@ -86,9 +86,21 @@ Use the finalScore function below to do the following:
   "Away": 5
 }
 */ 
-// params are inningcb, number
-function finalScore(/*code Here*/){
-  /*Code Here*/
+
+function finalScore(inningcb, numberOfInnings){
+  let homeScore = 0;
+  let awayScore = 0;
+  const total = {
+    Home: homeScore,
+    Away: awayScore
+  }; //ask about this and the let for homeScore/awayScore
+  for(let i = 0; i <= numberOfInnings; i++){
+    homeScore = homeScore + inningcb();
+    awayScore = awayScore + inningcb();
+    total.Home = homeScore;
+    total.Away = awayScore;
+  }
+  return total;
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
