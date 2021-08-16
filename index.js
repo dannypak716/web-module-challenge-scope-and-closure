@@ -69,7 +69,7 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning(){
-    return Math.floor(Math.random() * Math.floor(2));
+    return Math.floor(Math.random() * 3);
 }
 
 
@@ -93,7 +93,7 @@ function finalScore(inningcb, numberOfInnings){
   const total = {
     Home: homeScore,
     Away: awayScore
-  }; //ask about this and the let for homeScore/awayScore
+  }
   for(let i = 0; i <= numberOfInnings; i++){
     homeScore = homeScore + inningcb();
     awayScore = awayScore + inningcb();
@@ -110,8 +110,12 @@ Use the getInningScore() function below to do the following:
 
   // inning cb
   // returning an object with a score for home and away (like the guided project)
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+
+function getInningScore(inningcb){
+  return{
+    Home: inningcb(),
+    Away: inningcb()
+  }
 }
 
 
@@ -155,10 +159,27 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ]  
   */
-// params are getinningscorecb, scorecb, number
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+
+function scoreboard(getInningScorecb, inningcb, numberOfInnings){
+  const totalScore = {
+    Home: 0,
+    Away: 0
+  }
+  for(let i = 1; i <= numberOfInnings; i++){
+    let score = getInningScorecb(inningcb);
+    console.log(`Inning ${i}: Away ${score.Away} - Home ${score.Home}`);
+    totalScore.Home += score.Home;
+    totalScore.Away += score.Away;
+  }
+  if(totalScore.Home === totalScore.Away){
+    console.log(`This game will require extra innings: Away ${totalScore.Away} - Home ${totalScore.Home}`);
+  }else{
+    console.log(`Final Score: Away ${totalScore.Away} - Home ${totalScore.Home}`)
+  }
+  
 }
+
+(scoreboard(getInningScore, inning, 9));
 
 
 
